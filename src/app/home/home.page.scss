@@ -1,0 +1,35 @@
+.profile-section{
+  justify-content: center;
+  display: flex;
+}
+
+ion-avatar{
+  width: 140px;
+  height: 140px;
+  margin-top: 30px;
+}
+
+ion-lable{
+  font-size: 16px;
+}
+
+ion-note{
+  font-size: 15px;
+}
+
+.segment-label{
+  font-size: 14px;
+}
+
+.segment-content h4{
+  padding-top: 5px;
+  margin-left: 15px;
+}
+
+.achievements ion-icon{
+  color: rgb(216, 184, 1);
+}
+
+.achievements h4{
+  padding-top: 0;
+}

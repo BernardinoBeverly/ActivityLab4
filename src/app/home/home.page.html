@@ -1,0 +1,128 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="profile-title">
+      Profile
+    </ion-title>
+      <ion-menu-button slot="start" menu="main-menu"></ion-menu-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="profile-section">
+    <ion-avatar>
+      <ion-img src = "assets/import-images/profile-pic.jpg"></ion-img>
+    </ion-avatar>
+  </div>
+  <h3 class="ion-text-center">Beverly Karen Bernardino</h3>
+  <h5 class="ion-text-center">BSIT Student </h5><br><br>
+
+  <div class="personal-information">
+      <ion-segment [(ngModel)]='selectTabs' mode='ios'>
+          <ion-segment-button value="personal">
+            <ion-icon name="person"></ion-icon>
+            <ion-label class="segment-label"></ion-label>
+          </ion-segment-button>
+
+          <ion-segment-button value="Education">
+            <ion-icon name="book"></ion-icon>
+            <ion-label class="segment-label"></ion-label>
+          </ion-segment-button>
+
+          <ion-segment-button value="achievements">
+            <ion-icon name="medal"></ion-icon>
+            <ion-label class="segment-label"></ion-label>
+          </ion-segment-button>
+      </ion-segment>
+
+      <div class="segment-content" *ngIf="selectTabs === 'personal'">
+        <h4>Personal Information</h4>
+        <ion-list>
+          <ion-item>
+            <ion-label>Birthdate</ion-label>
+            <ion-note slot="end">October 20, 2001</ion-note>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Birth Place</ion-label>
+            <ion-note slot="end">Olongapo City, PH</ion-note>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Age</ion-label>
+            <ion-note slot="end">20</ion-note>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Nationality</ion-label>
+            <ion-note slot="end">Filipino</ion-note>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Religion</ion-label>
+            <ion-note slot="end">Born Again Christian</ion-note>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Address</ion-label>
+            <ion-note slot="end">Apitong St. Old Cabalan</ion-note>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Zip Code</ion-label>
+            <ion-note slot="end">2200</ion-note>
+          </ion-item>
+        </ion-list>
+      </div>
+
+      <div class="segment-content" *ngIf="selectTabs === 'Education'">
+        <h4>Education Background</h4>
+        <ion-list>
+          <ion-item>
+            <ion-label>College (current)</ion-label>
+            <ion-note slot="end">Gordon College</ion-note>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Senior High Level</ion-label>
+            <ion-note slot="end">St. Joseph College</ion-note>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Junior High Level</ion-label>
+            <ion-note slot="end">OCABIS</ion-note>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Elementary Level</ion-label>
+            <ion-note slot="end">OCES</ion-note>
+          </ion-item>
+        </ion-list>
+      </div>
+
+      <div class="segment-content" *ngIf="selectTabs === 'achievements'">
+        <ion-list class="achievements">
+          <h4>Current Achievements</h4>
+          <ion-item>
+            <ion-label>With honors</ion-label>
+            <ion-icon slot="end" name="medal"></ion-icon>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Best in Work Immersion</ion-label>
+            <ion-icon slot="end" name="medal"></ion-icon>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Best ICT club member</ion-label>
+            <ion-icon slot="end" name="medal"></ion-icon>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Top 1 in SHS Cheerdance Competition</ion-label>
+            <ion-icon slot="end" name="medal"></ion-icon>
+          </ion-item>
+        </ion-list>
+      </div>
+  </div>
+</ion-content>

@@ -1,0 +1,74 @@
+<ion-content>
+   <h2 class="ion-text-center create"><b>Sign Up</b></h2>
+   <form [formGroup]="createForm" (submit)="signup()">
+     <ion-list>
+       <ion-item>
+         <ion-label position="floating">Name</ion-label>
+         <ion-input type="text" formControlName="name"></ion-input>
+       </ion-item>
+
+       <div *ngFor="let error of validatormessage.name">
+         <ng-container *ngIf="name.hasError(error.type) && (name.dirty || name.touched)">
+           <small class="error-message"><ion-icon class="alert-ico" name="alert-circle-outline"></ion-icon> {{error.message}}</small>
+         </ng-container>
+       </div>
+       <br>
+
+       <ion-item>
+         <ion-label position="floating">Email</ion-label>
+         <ion-input type="email" formControlName="emailAdd"></ion-input>
+       </ion-item>
+
+       <div *ngFor="let error of validatormessage.emailAdd">
+         <ng-container *ngIf="emailAdd.hasError(error.type) && (emailAdd.dirty || emailAdd.touched)">
+           <small class="error-message"><ion-icon class="alert-ico" name="alert-circle-outline"></ion-icon> {{error.message}}</small>
+         </ng-container>
+       </div>
+       <br>
+
+       <ion-item>
+         <ion-label position="floating">Phone Number</ion-label>
+         <ion-input type="numeric"  inputmode="numeric" formControlName="phone"></ion-input>
+       </ion-item>
+
+       <div *ngFor="let error of validatormessage.phone">
+         <ng-container *ngIf="phone.hasError(error.type) && (phone.dirty || phone.touched)">
+           <small class="error-message"><ion-icon class="alert-ico" name="alert-circle-outline"></ion-icon> {{error.message}}</small>
+         </ng-container>
+       </div>
+       <br>
+
+       <ion-item>
+         <ion-label position="floating">Password</ion-label>
+         <ion-input [type]="showPassword ? 'text' : 'password'" formControlName="password"></ion-input>
+         <ion-icon class="eye" slot="end" [name]="showPassToggle" (click)="showPass()"></ion-icon>
+       </ion-item>
+
+       <div *ngFor="let error of validatormessage.password">
+         <ng-container *ngIf="password.hasError(error.type) && (password.dirty || password.touched)">
+           <small class="error-message"><ion-icon class="alert-ico" name="alert-circle-outline"></ion-icon> {{error.message}}</small>
+         </ng-container>
+       </div>
+       <br>
+
+
+       <ion-item>
+         <ion-label position="floating">Confirm Password</ion-label>
+         <ion-input [type]="showRetypePassword ? 'text' : 'password'" formControlName="confirmpass"></ion-input>
+         <ion-icon class="eye" slot="end" [name]="showRetypePassToggle" (click)="showRetypePass()"></ion-icon>
+       </ion-item>
+
+       <div *ngFor="let error of validatormessage.confirmpass">
+         <ng-container *ngIf="confirmpass.hasError(error.type) && (confirmpass.dirty || confirmpass.touched)">
+           <small class="error-message"><ion-icon class="alert-ico" name="alert-circle-outline"></ion-icon> {{error.message}}</small>
+         </ng-container>
+       </div>
+       <br>
+
+       <ion-button [attr.disabled]="!createForm.valid" type="submit" routerLink="/login" routerDirection="root" expand="block">Register</ion-button>
+       <h5 class="ion-text-center or">Or</h5>
+       <ion-button routerLink="/login" routerDirection="root" expand="block">Log In</ion-button>
+     </ion-list>
+   </form>
+
+</ion-content>

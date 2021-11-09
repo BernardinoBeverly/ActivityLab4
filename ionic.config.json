@@ -1,0 +1,7 @@
+{
+  "name": "ActivityLab4",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

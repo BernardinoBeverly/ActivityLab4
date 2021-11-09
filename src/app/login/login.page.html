@@ -1,0 +1,40 @@
+<ion-content>
+  <h2 class="ion-text-center login">Sign In</h2>
+  <form [formGroup]="loginForm" (submit)="login()">
+    <ion-list>
+
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email" formControlName="emailAdd"></ion-input>
+      </ion-item>
+
+      <div *ngFor="let error of validatormessage.emailAdd">
+        <ng-container *ngIf="emailAdd.hasError(error.type) && (emailAdd.dirty || emailAdd.touched)">
+          <small class="error-message"><ion-icon class="alert-ico" name="alert-circle-outline"></ion-icon> {{error.message}}</small>
+        </ng-container>
+      </div>
+      <br>
+
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input [type]="showPassword ? 'text' : 'password'" formControlName="password"></ion-input>
+        <ion-icon class="eye" slot="end" [name]="showPassToggle" (click)="showPass()"></ion-icon>
+      </ion-item>
+
+      <div *ngFor="let error of validatormessage.password">
+        <ng-container *ngIf="password.hasError(error.type) && (password.dirty || password.touched)">
+          <small class="error-message"><ion-icon class="alert-ico" name="alert-circle-outline"></ion-icon> {{error.message}}</small>
+        </ng-container>
+      </div>
+      <input type="checkbox" class="checkbox">
+      <ion-label class ="checkbox-section">
+        Remember me.
+      </ion-label><br><br><br>
+      <ion-button [attr.disabled]="!loginForm.valid" type="submit" routerLink="/home" routerDirection="root" expand="block">Log In</ion-button>
+      <br>
+      <h5 class="forgot-pass"><a href="/login"  (click)="forgotPass()">Forgotten password?</a></h5>
+      <h5 class="create-new"><a href="/signup">Create new account here.</a></h5>
+    </ion-list>
+  </form>
+
+</ion-content>
